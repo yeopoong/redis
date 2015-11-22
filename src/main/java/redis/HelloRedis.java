@@ -17,15 +17,12 @@ public class HelloRedis {
 			System.out.println("jedis Value 2 : " + jedis.get("test2"));
 			System.out.println(jedis.dbSize());
 		} catch (JedisConnectionException e) {
-			if (null != jedis) {
-				jedisPool.returnBrokenResource(jedis);
-				jedis = null;
-			}
 		} finally {
 			if (null != jedis) {
-				jedisPool.returnResource(jedis);
+				jedisPool.close();
 			}
 		}
+
 		jedisPool.destroy();
 	}
 }
