@@ -7,7 +7,7 @@ import redis.clients.jedis.exceptions.JedisConnectionException;
 
 public class HelloRedis {
 	public static void main(String args[]) {
-		JedisPool jedisPool = new JedisPool(new JedisPoolConfig(), "localhost");
+		JedisPool jedisPool = new JedisPool(new JedisPoolConfig(), "192.168.33.10");
 		Jedis jedis = jedisPool.getResource();
 
 		try {
